@@ -21,7 +21,7 @@ string Str(int x) {
 
 /*{{{ Save*/
 void save_week(int num) {
-	string ra, rb, path = "data/week/"+Str(num)+"/.wa.swap";
+	string ra, rb, path = "/tmp/.dictation_data/week/"+Str(num)+"/.wa.swap";
 	FILE *fp = freopen(path.data(), "w", stdout);
 	cout << tot_wa << endl;
 	sort(WA+1, WA+tot_wa+1, cmp);
@@ -36,7 +36,7 @@ void save_week(int num) {
 
 /*{{{ 周计划*/
 void Week_read(int num, int type) {
-	string path = "data/week/", ra, rb;
+	string path = "/tmp/.dictation_data/week/", ra, rb;
 	path += Str(num);
 	if (!type) path += "/words";
 	else path += "/wa";
@@ -94,7 +94,7 @@ void Week() {
 		if (ra == word[j].EN) cout << "AC\n";
 	}
 	cout << "Finish!!!\n";
-	ra = "cp data/week/"+Str(num)+"/.wa.swap data/week/"+Str(num)+"/wa";
+	ra = "cp /tmp/.dictation_data/week/"+Str(num)+"/.wa.swap /tmp/.dictation_data/week/"+Str(num)+"/wa";
 	system(ra.data());
 	getchar(), getchar();
 	return;
